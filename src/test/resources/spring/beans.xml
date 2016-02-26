@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 설정자 주입 -->
+	<bean id="shape1" class="com.hybrid.shape.Shape">
+		<property name="width"><value>100</value></property>
+		<property name="height"><value>200</value></property>
+		<property name="color"><value>30</value></property>		
+		<!-- <property name="date" value="2015/11/11"/> -->		
+		<property name="date" ref="date"/>
+	</bean>
+	<!-- date -->
+	<bean id="date" class="java.util.Date">
+		<property name="year" value="116"/>
+		<property name="month" value="1"></property>
+		<property name="date" value="18"></property>
+	</bean>
+	<!-- sdf -->
+	<bean id="sdf" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy년 MM월 dd일 hh시 mm분 ss초"></constructor-arg>		
+	</bean>
+	<!-- 생성자 주입 -->
+	<bean id="shape2" class="com.hybrid.shape.Shape">
+		<constructor-arg><value>1000</value></constructor-arg>
+		<constructor-arg><value>2000</value></constructor-arg>
+		<constructor-arg><value>3000</value></constructor-arg>
+		<constructor-arg><value>2015/11/11</value></constructor-arg>
+	</bean>
+	
+	<bean class="com.hybrid.SpringTest">
+		<property name="shape">
+			<ref bean="shape1"/>
+		</property>
+		<property name="SDF">
+			<ref bean="sdf"/>
+		</property>
+	</bean>
+</beans>

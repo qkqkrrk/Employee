@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<bean class="com.hybrid.CollectionTest">
+		<property name="color">
+			<list>
+				<value>RED</value>
+				<value>GREEN</value>
+				<value>BLUE</value>
+			</list>
+		</property>
+		<property name="language">
+			<map>          
+        		<entry key="empno" value="7369" />
+        		<entry key="ename" value="SMITH" />
+        		<entry key="job"   value="CLERK" />
+        		<entry key="hiredate" value="1980/12/17 00:00:00" />        
+      		</map>
+		</property>
+		<property name="locale">
+			<set>
+				<value>서울</value>
+				<value>부산</value>
+				<value>?</value>
+			</set>
+		</property>
+	</bean>
+</beans>
